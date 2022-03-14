@@ -7,7 +7,8 @@ const morgan = require("morgan");
 
 env.config();
 
-const { PORT, APP_PORT, TEST } = process.env;
+const { PORT, APP_PORT, CORS } = process.env;
+
 
 const app = express();
 app.disable("x-powered-by");
