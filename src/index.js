@@ -9,9 +9,6 @@ env.config();
 
 const { PORT, APP_PORT, CORS } = process.env;
 
-const corsOptions = {
-  origin: (CORS === "") ? "http://localhost:3000" : `${CORS}`,
-};
 
 const app = express();
 app.disable("x-powered-by");
