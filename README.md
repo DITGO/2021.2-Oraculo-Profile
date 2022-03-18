@@ -1,10 +1,14 @@
-# 2021.1-Oraculo-Profile
+# 2021.2-Oraculo-Profile
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/gpl-3.0.html)
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fga-eps-mds_2021.1-Oraculo-Profile&metric=alert_status)](https://sonarcloud.io/dashboard?id=fga-eps-mds_2021.1-Oraculo-Profile)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fga-eps-mds_2021.2-Oraculo-Profile&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=fga-eps-mds_2021.2-Oraculo-Profile)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=fga-eps-mds_2021.2-Oraculo-Profile&metric=coverage)](https://sonarcloud.io/summary/new_code?id=fga-eps-mds_2021.2-Oraculo-Profile)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=fga-eps-mds_2021.2-Oraculo-Profile&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=fga-eps-mds_2021.2-Oraculo-Profile)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=fga-eps-mds_2021.2-Oraculo-Profile&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=fga-eps-mds_2021.2-Oraculo-Profile)
 
-Essa API faz parte da arquitetura de microsserviços do projeto [`Oráculo`](https://github.com/fga-eps-mds/2021.1-Oraculo), sua funcionalidade é em questão de criar e editar os usuários do sistema.
+
+Essa API faz parte da arquitetura de microsserviços do projeto [`Oráculo`](https://github.com/fga-eps-mds/2021-2-Oraculo-Doc), sua funcionalidade é em questão de criar e editar os usuários do sistema.
 
 ## Como contribuir?
 
@@ -13,7 +17,7 @@ Caso reste duvidas você também pode entrar em contato conosco criando uma issu
 
 ## Documentação
 
-A documentação do projeto pode ser acessada pelo nosso site em https://fga-eps-mds.github.io/2021.1-Oraculo/.
+A documentação do projeto pode ser acessada pelo nosso site em https://github.com/fga-eps-mds/2021-2-Oraculo-Doc
 
 ## Testes
 
