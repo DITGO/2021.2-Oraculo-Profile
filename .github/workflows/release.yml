@@ -29,6 +29,7 @@ jobs:
       - run: yarn run db:seeders
 
       - run: yarn run user:create # creates admin user
+      - run: yarn run test
       
 
       - name: Create JSON
