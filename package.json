@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest --coverage --forceExit",
+    "test": "jest --coverage  --verbose --forceExit",
     "db:seeders": "export DATABASE_URL=postgres://oraculo:oraculo123@localhost:5432/oraculo && npx sequelize db:seed:all",
     "db:seeders:prod": "export DATABASE_URL=postgres://oraculo:oraculo123@localhost:5432/oraculo && npx sequelize db:seed:all --env production",
     "db:migrate": "export DATABASE_URL=postgres://oraculo:oraculo123@localhost:5432/oraculo && sleep 5 && npx sequelize db:migrate",
