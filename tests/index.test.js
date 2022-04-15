@@ -468,7 +468,7 @@ describe("Main test", () => {
 
     const res1 = await request(app)
       .put("/password-recovery")
-      .send({ token: res.token, password: "novaSenha" });
+      .send({ token: res.body.token, password: "novaSenha" });
 
     expect(res1.statusCode).toEqual(200);
   });

@@ -11,14 +11,14 @@ module.exports = {
       const emailRes = String(email)
       const mail = new Mailer()
       const user = await User.findOne({ where: { email: emailRes } })
-
-      user.token = String(crypto.randomBytes(10).toString('hex'))
-      user.token_created_at = new Date()
       if (!user) {
         return res
           .status(400)
           .send({ error: 'Não existe usuário para esse e-mail' })
       }
+      user.token = String(crypto.randomBytes(10).toString('hex'))
+      user.token_created_at = new Date()
+
       await user.save()
 
       await mail.resetPassword({ token: user.token, userEmail: user.email })
