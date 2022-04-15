@@ -43,15 +43,9 @@ module.exports = {
 
       const user = await User.findOne({ where: { token: tokenReq } })
 
-      const tokenExpired = moment()
-        .subtract('2', 'days')
-        .isAfter(user.token_created_at)
-      if (tokenExpired) {
-        return res
-          .status(401)
-          .send({ error: { message: 'O token de recuperação está expirado' } })
+      if (!user) {
+        return res.status(400).send({ message: 'Invalid token' })
       }
-
       user.token = null
       user.token_created_at = null
       user.password = await hashPassword(passwordReq)
