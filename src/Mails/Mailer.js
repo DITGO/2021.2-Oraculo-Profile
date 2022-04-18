@@ -36,8 +36,8 @@ class Mailer {
         
     </style>
     <p>Olá, tudo bem?</p>
-    <p>Alguem tentou recuperar a sua senha, pois não estava lembrando dela, por acaso foi vocë mesmo?</p>
-    <p>Se não for vocë, aconselho a trocar de senha, pois possivelmente você está sendo atacado</p>   
+    <p>Alguem tentou recuperar a sua senha, pois não estava lembrando dela, por acaso foi você mesmo?</p>
+    <p>Se não for você, aconselho a trocar de senha, pois possivelmente você está sendo atacado</p>   
     <p>Mas se foi, pode continuar com a recuperação da senha utilizando o token <i> ${options.token} </i></p>
     <p>Abraços a distancia.</p>
     <strong>Oráculo</strong>`,
