@@ -197,7 +197,9 @@ describe("Main test", () => {
   });
 
   it("GET /users/all - post without valid token", async () => {
-    const res = await request(app).get("/users/all").set("x-access-token", "invalid");
+    const res = await request(app)
+      .get("/users/all")
+      .set("x-access-token", "invalid");
     expect(res.statusCode).toEqual(511);
   });
 
@@ -245,7 +247,9 @@ describe("Main test", () => {
   });
 
   it("GET /user/info - should return information of admin user", async () => {
-    const res = await request(app).get("/user/info").set("X-Access-Token", adminToken);
+    const res = await request(app)
+      .get("/user/info")
+      .set("X-Access-Token", adminToken);
     expect(res.statusCode).toEqual(200);
   });
 
@@ -422,7 +426,9 @@ describe("Main test", () => {
   });
 
   it("GET /user/:id/info - should return all user info", async () => {
-    const res = await request(app).get("/user/1/info").set("x-access-token", adminToken);
+    const res = await request(app)
+      .get("/user/1/info")
+      .set("x-access-token", adminToken);
 
     expect(res.statusCode).toEqual(200);
     expect(res.body).toBeDefined();
@@ -439,8 +445,48 @@ describe("Main test", () => {
 
     let token = res.body.token;
 
-    const res1 = await request(app).get("/user/1/info").set("x-access-token", token);
+    const res1 = await request(app)
+      .get("/user/1/info")
+      .set("x-access-token", token);
     expect(res1.statusCode).toEqual(200);
+  });
+
+  it("Post /password-recovery - should return 200 if valid email is provided", async () => {
+    const res = await request(app)
+      .post("/password-recovery")
+      .send({ email: user.email });
+
+    expect(res.statusCode).toEqual(200);
+  });
+
+  it("Put /password-recovery - should return 200 if valid token is provided", async () => {
+    const res = await request(app)
+      .post("/password-recovery")
+      .send({ email: user1.email });
+
+    expect(res.statusCode).toEqual(200);
+
+    const res1 = await request(app)
+      .put("/password-recovery")
+      .send({ token: res.body.token, password: "novaSenha" });
+
+    expect(res1.statusCode).toEqual(200);
+  });
+
+  it("Post /password-recovery - should return 400 if invalid email is provided", async () => {
+    const res = await request(app)
+      .post("/password-recovery")
+      .send({ email: "invalidEmail" });
+
+    expect(res.statusCode).toEqual(400);
+  });
+
+  it("Put /password-recovery - should return 400 if invalid token is provided", async () => {
+    const res = await request(app)
+      .put("/password-recovery")
+      .send({ token: "invalidToken", password: "novaSenha" });
+
+    expect(res.statusCode).toEqual(400);
   });
 });
 
