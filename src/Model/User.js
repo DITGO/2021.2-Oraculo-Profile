@@ -7,6 +7,8 @@ class User extends Model {
         name: { type: Sequelize.TEXT },
         email: { type: Sequelize.TEXT },
         password: { type: Sequelize.TEXT },
+        token: { type: Sequelize.TEXT },
+        token_created_at: { type: Sequelize.DATE },
       },
       {
         sequelize: db,
