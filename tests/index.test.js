@@ -488,6 +488,16 @@ describe("Main test", () => {
 
     expect(res.statusCode).toEqual(400);
   });
+
+  it("Get /user/:id - it should return 200 if valid id is provided", async () => {
+    const res = await request(app).get("/user/1");
+    expect(res.statusCode).toEqual(200);
+  });
+
+  it("Get /user/:id - it should return 404 if invalid id is provided", async () => {
+    const res = await request(app).get("/user/1214241");
+    expect(res.statusCode).toEqual(404);
+  });
 });
 
 afterAll((done) => {
