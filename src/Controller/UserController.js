@@ -26,7 +26,12 @@ async function findUserLevelByID(req) {
 }
 
 async function createUser(req, res) {
-  if (!req.body.name || !req.body.password || !req.body.email || !req.body.level) {
+  if (
+    !req.body.name ||
+    !req.body.password ||
+    !req.body.email ||
+    !req.body.level
+  ) {
     return res.status(400).send({
       error: "lacks of information to register user",
     });
@@ -61,8 +66,13 @@ async function createUser(req, res) {
       where: { id: newUserInfo.levelID },
     });
 
-    if ((!department && newUserInfo.levelID === privilegeTypes.admin) || !level) {
-      return res.status(400).send({ error: "invalid user information provided" });
+    if (
+      (!department && newUserInfo.levelID === privilegeTypes.admin) ||
+      !level
+    ) {
+      return res
+        .status(400)
+        .send({ error: "invalid user information provided" });
     }
 
     const newUser = await User.create({
@@ -81,7 +91,9 @@ async function createUser(req, res) {
     return res.status(200).send(newUser);
   } catch (error) {
     console.log(`could not create user: ${error}`);
-    return res.status(500).json({ error: "internal error during user register" });
+    return res
+      .status(500)
+      .json({ error: "internal error during user register" });
   }
 }
 
@@ -132,7 +144,9 @@ async function getUsersList(req, res) {
     return res.status(200).json(allUsers);
   }
 
-  return res.status(401).json({ error: "you don't have permissions to list all users" });
+  return res
+    .status(401)
+    .json({ error: "you don't have permissions to list all users" });
 }
 
 async function getAccessLevel(req, res) {
@@ -182,7 +196,9 @@ async function updatePassword(req, res) {
     return res.status(200).json({ message: "password updated sucessfully" });
   } catch (error) {
     console.log(`could not update password: ${error}`);
-    return res.status(500).json({ error: "internal error during update password" });
+    return res
+      .status(500)
+      .json({ error: "internal error during update password" });
   }
 }
 
@@ -248,10 +264,27 @@ async function getUserInfoByID(req, res) {
     }
   } catch (error) {
     console.log(` Couldn't find user: ${error}`);
-    return res.status(500).json({ message: "Internal error during search user" });
+    return res
+      .status(500)
+      .json({ message: "Internal error during search user" });
   }
 }
 
+async function getUserById(req, res) {
+  try {
+    const { id } = req.params;
+    const userId = Number.parseInt(id);
+
+    const user = await User.findByPk(userId);
+    if (!user) {
+      return res.status(404).json({ error: "There is no user for this id" });
+    }
+
+    return res.status(200).json(user);
+  } catch (error) {
+    return res.status(500).json({ message: "Internal error" });
+  }
+}
 module.exports = {
   createUser,
   loginUser,
@@ -262,4 +295,5 @@ module.exports = {
   updatePassword,
   editUser,
   getUserInfoByID,
+  getUserById,
 };
