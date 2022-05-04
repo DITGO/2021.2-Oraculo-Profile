@@ -81,7 +81,10 @@ EMAIL_PORT=
 EMAIL_HOST=
 ```
 
-Sendo EMAIL_USER o email, EMAIL_PASS a senha do email, EMAIL_PORT=587 e EMAIL_HOST o host que o serviço executará
+Sendo `EMAIL_USER` o endereço de email <br>
+ `EMAIL_PASS` a senha do email 
+ `EMAIL_PORT` = 587 
+ `EMAIL_HOST` = smtp.gmail.com
 
 3 - Configure a variável de ambiente `DATABASE_URL`
 
