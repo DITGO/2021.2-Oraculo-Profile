@@ -75,7 +75,13 @@ DB_PASS=api_password
 DB_NAME=api_database
 DB_HOST=db_users
 DB_PORT=8001
+EMAIL_USER=
+EMAIL_PASS=
+EMAIL_PORT=
+EMAIL_HOST=
 ```
+
+Sendo EMAIL_USER o email, EMAIL_PASS a senha do email, EMAIL_PORT=587 e EMAIL_HOST o host que o serviço executará
 
 3 - Configure a variável de ambiente `DATABASE_URL`
 
